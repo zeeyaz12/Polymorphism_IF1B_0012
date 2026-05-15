@@ -1,25 +1,25 @@
 public class Kasir{
-    private String namaKasir;
+    private String nama;
 
-    public Kasir(String namaKasir){
-        this.namaKasir = namaKasir;
+    public Kasir(String nama){
+        this.nama = nama;
     }
 
-    public void transaksi(Produk p, int jumlah){
-        double hargaAkhir * 0.0;
-        
-        if (jumlah> p.getStok()){
-            System.out.println("Stok tidak cukup");
+    public void tampilkIdentitas(){
+        System.out.println("=== TOKO GARUDA ===");
+        System.out.println("Nama Kasir: " + nama);
+    }
 
-        } else{
-            hargaAkhir = p.hitungtotalBayar(jumlah);
-            p.setStok(jumlah);
+    public void prosesBelanja(Produk p, int jmlhBeli){
+        if(p.getStok() < jmlhBeli){
+            System.out.println("Out of Stock");
+        }else{
+            double hargaAkhir = p.hitungHargaAkhir(jmlhBeli);
+            System.out.println("Harga AKhir: " + hargaAkhir);
+
+            p.setStok(jmlhBeli);
         }
-        System.out.println("------- Toko Jaya -------");
-        System.out.println("Nama Kasir:" + namaKasir);
-        System.out.println("JUmlah Beli:" + jumlah);
-        System.out.println("Total Harga: " + hargaAKhir);
-        System.out.println("Sisa Stok: " + p.getStok());
 
+        System.out.println("Stok saat ini: " + p.getStok());
     }
 }

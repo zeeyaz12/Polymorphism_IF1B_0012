@@ -1,17 +1,20 @@
-public class Makanan extands Produk{
-    private String expired;
+public class Makanan extends Produk{
+    private int kadaluarsa;
 
-    publid Makanan(String nama, double harga, int stok, String expired){
+    public Makanan(String nama, double harga, int stok, int kadaluarsa){
         super(nama, harga, stok);
-        this.expired = expired;
+        this.kadaluarsa = kadaluarsa;
     }
+
     @Override
-    public double hitungtotalBayar(int jumlah){
-        return hitungtotalHarga(jumlah) * 0,5;
+    public double hitungHargaAkhir(int jmlhBeli){
+        System.out.println("Total Harga : " + hitungTotalHarga(jmlhBeli));
+        return hitungTotalHarga(jmlhBeli) * 0.95;
     }
+
     @Override
     public void tampilInfo(){
         super.tampilInfo();
-        System.out.println("expired: " + expired);
+        System.out.println("Masa Kadaluarsa: " + kadaluarsa + " Hari");
     }
 }

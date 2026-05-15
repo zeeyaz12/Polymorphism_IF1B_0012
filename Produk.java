@@ -8,23 +8,25 @@ public abstract class Produk{
         this.harga = harga;
         this.stok = stok;
     }
+
+    public void setStok(int jmlhBeli){
+        stok -= jmlhBeli;
+    }
+
     public int getStok(){
         return stok;
     }
-    public void setStok(int jumlah){
-        stok = stok - jumlah;
-    }
+
     public void tampilInfo(){
-        System.out.println("nama: " + nama);
-        System.out.println("harga: " + harga);
+        System.out.println("=== Produk ===");
+        System.out.println("Nama: " + nama);
+        System.out.println("Harga: " + harga);
         System.out.println("Stok: " + stok);
     }
-    public double hitungtotalHarga(int jumlah){
-        return jumlah * harga;
-    }
-    public abstract void hitungtotalBayar(int jumlah);
-       
-}
-    
 
-    
+    public double hitungTotalHarga(int jmlhBeli){
+        return jmlhBeli * harga;
+    }
+
+    public abstract double hitungHargaAkhir(int jmlhBeli);
+}
